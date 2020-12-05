@@ -1,10 +1,16 @@
-data1 <- read.csv("/home/ismael/Bureau/R/Projet_R/african_crises.csv")
-data1$banking_crisis[data1$banking_crisis=="no_crisis"] <- 0
-data1$banking_crisis[data1$banking_crisis=="crisis"] <- 1
-
-data1$banking_crisis <- as.numeric(data1$banking_crisis)
-
-
+#' Title
+#'
+#' @param data1 data
+#'
+#' @return list
+#' @import stats
+#' @import base
+#' @importFrom MASS stepAIC
+#' @import graphics
+#' @export
+#'
+#' @examples
+#' crisis_lm(titanic)
 crisis_lm <- function(data1){
   a <- data1$systemic_crisis
   b <- data1$exch_usd
@@ -32,8 +38,8 @@ crisis_lm <- function(data1){
   # Sélection des variables : pas à pas de façon automatique :
   selec <-  MASS::stepAIC(lm(a~1, data1),a~b+c+d+e+f+g+h+i+j, direction="both")
 
-  return(base::list(scatterplot = scartter, regression_lineaire = ml, resume = resum,
-              anova = anov, selection_variable = selec))
-
+  sortie <- base::list(scatterplot = scartter, regression_lineaire = ml, resume = resum,
+              anova = anov, selection_variable = selec)
+  return(sortie)
 
 }
