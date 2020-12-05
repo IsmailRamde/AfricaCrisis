@@ -1,3 +1,10 @@
+data1 <- read.csv("/home/ismael/Bureau/R/Projet_R/african_crises.csv")
+data1$banking_crisis[data1$banking_crisis=="no_crisis"] <- 0
+data1$banking_crisis[data1$banking_crisis=="crisis"] <- 1
+
+data1$banking_crisis <- as.numeric(data1$banking_crisis)
+
+
 crisis_lm <- function(data1){
   a <- data1$systemic_crisis
   b <- data1$exch_usd
