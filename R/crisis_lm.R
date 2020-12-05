@@ -5,7 +5,7 @@
 #' @return list
 #' @import stats
 #' @import base
-#' @import MASS
+#' @importFrom MASS stepAIC
 #' @import graphics
 #' @export
 #'
