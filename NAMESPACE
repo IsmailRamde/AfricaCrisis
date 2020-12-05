@@ -1,3 +1,4 @@
 exportPattern("^[[:alpha:]]+")
 importFrom("graphics", "panel.smooth")
 importFrom("stats", "lm")
+importFrom("MASS", "stepAIC")

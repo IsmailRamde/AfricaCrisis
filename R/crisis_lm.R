@@ -5,12 +5,11 @@
 #' @return list
 #' @import stats
 #' @import base
-#' @importFrom MASS stepAIC
+#' @import MASS
 #' @import graphics
 #' @export
 #'
 #' @examples
-#' crisis_lm(titanic)
 crisis_lm <- function(data1){
   a <- data1$systemic_crisis
   b <- data1$exch_usd
@@ -36,7 +35,7 @@ crisis_lm <- function(data1){
   anov <- stats::anova(ml)
 
   # Sélection des variables : pas à pas de façon automatique :
-  selec <-  MASS::stepAIC(lm(a~1, data1),a~b+c+d+e+f+g+h+i+j, direction="both")
+  selec <-  stepAIC(lm(a~1, data1),a~b+c+d+e+f+g+h+i+j, direction="both")
 
   sortie <- base::list(scatterplot = scartter, regression_lineaire = ml, resume = resum,
               anova = anov, selection_variable = selec)

@@ -15,6 +15,3 @@ list
 \description{
 Title
 }
-\examples{
-crisis_lm(titanic)
-}
